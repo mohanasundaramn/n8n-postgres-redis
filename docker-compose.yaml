@@ -27,33 +27,23 @@ services:
     ports:
       - "${N8N_PORT}:${N8N_PORT}"
     environment:
-      # Postgres
       DB_TYPE: ${DB_TYPE}
       DB_POSTGRESDB_HOST: postgres
       DB_POSTGRESDB_PORT: ${DB_POSTGRESDB_PORT}
       DB_POSTGRESDB_DATABASE: ${DB_POSTGRESDB_DATABASE}
       DB_POSTGRESDB_USER: ${DB_POSTGRESDB_USER}
       DB_POSTGRESDB_PASSWORD: ${DB_POSTGRESDB_PASSWORD}
-
-      # Redis
       QUEUE_BULL_REDIS_HOST: redis
       QUEUE_BULL_REDIS_PORT: ${QUEUE_BULL_REDIS_PORT}
-
-      # n8n encryption & settings
       N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY}
       N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: ${N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS}
-
-      # Basic Auth
       N8N_BASIC_AUTH_ACTIVE: ${N8N_BASIC_AUTH_ACTIVE}
       N8N_BASIC_AUTH_USER: ${N8N_BASIC_AUTH_USER}
       N8N_BASIC_AUTH_PASSWORD: ${N8N_BASIC_AUTH_PASSWORD}
-
-      # Host info
       N8N_HOST: ${N8N_HOST}
       N8N_PORT: ${N8N_PORT}
       N8N_PROTOCOL: ${N8N_PROTOCOL}
       NODE_ENV: ${NODE_ENV}
-
     depends_on:
       - postgres
       - redis
